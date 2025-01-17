@@ -1,0 +1,181 @@
+:root {
+    --dark-color: rgb(88, 88, 255);
+    --light-color: #acf7ef;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(to right top, var(--dark-color), var(--light-color));
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.button {
+    background: linear-gradient(to right top, var(--dark-color), var(--light-color));
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    cursor: pointer;
+    margin: auto;
+    display: block;
+    box-shadow: 3px 3px 3px rgb(32, 32, 32, 0.5);
+    color: aliceblue;
+    overflow: hidden;
+    position: relative;
+}
+
+.button::after {
+    background-color: rgba(255, 255, 255, 0.432);
+    content: " ";
+    transition: transform 1s linear;
+    height: 100px;
+    position: absolute;
+    top: -15px;
+    left: -20px;
+    width: 7px;
+    rotate: 15deg;
+    filter: blur(3px);
+}
+
+
+.button:hover::after {
+    transform: translateX(150px);
+
+}
+.form {
+    padding: 10px;
+    border-radius: 15px;
+    background: linear-gradient(to right top, rgb(54, 97, 216)10%, rgb(159, 181, 253)100%);
+    max-width: 300px;
+    box-shadow: 3px 3px 3px rgb(27, 27, 27);
+    z-index: 10;
+}
+
+.form .remember-forgot {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14.5px;
+    margin: -15px 0px 15px;
+}
+
+.input1 {
+    background: linear-gradient(to right top, var(--dark-color), var(--light-color));
+    border-radius: 15px;
+    border: none;
+    padding: 10px;
+    box-shadow: 3px 3px 3px rgb(32, 32, 32, 0.5);
+    position: relative;
+    
+}
+
+.input1::placeholder {
+    color: #ffffff96;
+}
+
+.input2 {
+    background: linear-gradient(to right top, var(--dark-color), var(--light-color));
+    border-radius: 15px;
+    border: none;
+    padding: 10px;
+    box-shadow: 3px 3px 3px rgb(43, 42, 42, 0.5);
+
+}
+
+.input2::placeholder {
+    color: #ffffff96;
+}
+
+::placeholder {
+    color: rgb(37, 37, 37);
+}
+
+.a {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: left 2.4s ease, opacity 1s ease;
+    pointer-events: none;
+    color: #ffffff96;
+    overflow-y: hidden;
+}
+
+.b{
+    position: relative;
+}
+
+.input-label:focus ~ .a, .input-label:not(:placeholder-shown) ~ .a {
+     left: calc(100% + 1px); 
+     opacity: 0; 
+    }
+
+    .bb {
+    position: absolute;
+    border-radius: 50%;
+    animation: float 100s ease-in-out infinite;
+}
+
+@keyframes float { 
+   
+    0%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(100vw);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+.bb1 {
+    background:linear-gradient(to right top,rgb(88, 50, 190)10%, rgba(156, 240, 255, 0.829)100%) ;
+    width: 90px;
+    height: 90px;
+    top: -70%;
+    left: 10%;
+    animation-delay: 0s;
+    animation: float 7s ease-in-out infinite;
+}
+
+.bb2 {
+    background:linear-gradient(to right top,rgb(54, 97, 216)10%, rgba(150, 255, 246, 0.6)100%) ;
+    width: 70px;
+    height: 70px;
+    top: -50%;
+    left: 50%;
+    animation-delay: 2s;
+    animation: float 8s ease-in-out infinite;
+}
+
+.bb3 {
+    background:linear-gradient(to right top,rgb(54, 97, 216)10%, rgba(158, 158, 247, 0.6)100%) ;
+    width: 80px;
+    height: 80px;
+    top: -60%;
+    left: 70%;
+    animation-delay: 4s;
+    animation: float 7s ease-in-out infinite;
+}
+.bb4{
+    background:linear-gradient(to right top,rgb(54, 97, 216)10%, rgba(158, 158, 247, 0.6)100%) ;
+    width: 80px;
+    height: 80px;
+    top: 60%;
+    left: 60%;
+    animation-delay: 5s;
+    animation: float 5s ease-in-out infinite;
+}
+.bb5{
+    background:linear-gradient(to right top,rgb(54, 97, 216)10%, rgba(158, 158, 247, 0.6)100%) ;
+    width: 80px;
+    height: 80px;
+    top: 50%;
+    left: 25%;
+    animation-delay: 2s;
+    animation: float 6s ease-in-out infinite;
+}
