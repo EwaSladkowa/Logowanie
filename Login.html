@@ -4,24 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="qwertyuiop.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="Login.css">
+    <title>Login</title>
 </head>
 
 <body>
     <br><br>
-    <form class="form">
+    <form class="form" action="Login.php">
 
         <div class="b">
-            <input class="input1 input-label" id="login-input" type="text" placeholder=" " required/>
+            <input class="input1 input-label" id="login-input" name="Login" type="text" placeholder=" " required/>
             <label for="login-input" class="a">User</label>
         </div>
         <br>
         <div class="b">
-            <input class="input2 input-label" id="password-input" placeholder=" " required/>
+            <input class="input2 input-label" id="password-input" name="Haslo" placeholder=" " required/>
             <label for="password-input" class="a">Password</label>
         </div>
         <br>
+        <button class="button" onclick="" type="submit">Zarejestruj się</button>
         <button class="button" onclick="Login()" type="submit">Login</button>
 
     </form>
@@ -30,7 +31,8 @@
     <div class="bb  bb3"></div>
     <div class="bb  bb4"></div>
     <div class="bb  bb5"></div>
-    <script src="qwertyuiop.js"></script>
+    <script src="Login.js"></script>
 </body>
 
 </html>
+
