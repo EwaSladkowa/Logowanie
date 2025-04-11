@@ -10,21 +10,22 @@
 
 <body>
     <br><br>
-    <form class="form" action="Login.php">
+    <form class="form" action="Login.php" method="post">
 
         <div class="b">
-            <input class="input1 input-label" id="login-input" name="Login" type="text" placeholder=" " required/>
+            <input name="Login" class="input1 input-label" id="login-input" type="text" placeholder=" " required/>
             <label for="login-input" class="a">User</label>
         </div>
         <br>
         <div class="b">
-            <input class="input2 input-label" id="password-input" name="Haslo" placeholder=" " required/>
+            <input name="Haslo" class="input2 input-label" id="password-input" placeholder=" " type="password" required/>
             <label for="password-input" class="a">Password</label>
         </div>
         <br>
-        <button class="button" onclick="" type="submit">Zarejestruj się</button>
-        <button class="button" onclick="Login()" type="submit">Login</button>
-
+        <div class="btn">
+            <button class="button" name="button" value="Registracja" type="submit">Registracja</button>
+            <button class="button" name="button" value="Login" onclick="Login()" type="submit">Login</button>
+        </div>
     </form>
     <div class="bb  bb1"></div>
     <div class="bb  bb2"></div>
