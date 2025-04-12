@@ -1,48 +1,57 @@
 <?php
-if (!empty($_POST["Login"]) && !empty($_POST["Haslo"]) && !empty($_POST["button"])){
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "logowanie";
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-$link = mysqli_connect(hostname: $servername, username: $username, password: $password = "",database: $dbname);
+$message = "Wpisz login i hasło";
+if (!empty($_POST["Login"]) && !empty($_POST["Haslo"]) && !empty($_POST["button"])) {
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "logowanie";
 
-
-if (!$link ){
-    die(mysqli_error(mysql: $link));
-}
-
-$Login = $_POST["Login"];
-$Haslo = $_POST["Haslo"];
-$action = $_POST["button"];
-
-if (!empty($_POST["Haslo"]) and !empty($_POST["Login"])){
-
-if  ($action == "Login"){
-    echo "ujg";
-    $query = "SELECT `Login`, `Haslo` FROM `uzytkownicy` WHERE login='$Login' AND password='$Haslo'";
-    $res =  mysqli_query($query, $link);
-    $user = mysqli_fetch_assoc($res);
-    
-    if ($user) {
-        echo "aaaaaaaaaaaaaaaaaaaa";
-    } else {
-        echo ":(";
+    $link = mysqli_connect($servername, $username, $password, $dbname);
+    if (!$link) {
+        die(mysqli_connect_error());
     }
 
-}
-elseif ($action == "Registracja") {
-       $query = "INSERT INTO `uzytkownicy`(`Login`, `Haslo`) VALUES ('$Login','$Haslo')" ;
-       $res =  mysqli_query($query, $link);
-    
-       if ($res){
-        echo "Dodano do bazy";
-       }else{
-        echo ":((";
-       }
-}
+    $Login = $_POST["Login"];
+    $Haslo = $_POST["Haslo"];
+    $action = $_POST["button"];
+    if ($action == "Login") {
+        $query = "SELECT Login, Haslo FROM uzytkownicy WHERE `Login`='$Login' AND `Haslo`='$Haslo'";
+        $res = mysqli_query($link, $query);
+        $user = mysqli_fetch_assoc($res);
 
+        if ($user) {
+            $message = "Zalogowano";
+        } else {
+            $message = "Nieprawidłowy login lub hasło";
+        }
+
+    } elseif ($action == "Registracja") {
+      
+        $s = "SELECT COUNT(*) FROM uzytkownicy WHERE `Login`='$Login'";
+        $res1 = mysqli_query($link, $s);
+        if ($res1){
+            $row = mysqli_fetch_row($res1);
+            if ($row[0] > 0){
+                $message = "Taki login już istnieje";
+            }else{
+                $query = "INSERT INTO `uzytkownicy`(`Login`, `Haslo`) VALUES ('$Login','$Haslo')";
+                $res = mysqli_query($link, $query);
+    
+                if ($res) {
+                    $message = "Dodano do bazy";
+                } else {
+                    $message = "Nie udało się zarejestrować";
+                }
+            }
+        }else {
+            $message = "Błąd podczas sprawdzania loginu";
+        }
+    }
+
+    mysqli_close($link);
 }
-mysqli_close(mysql: $link);
-}
+echo "<p>$message</p>";
 ?>
