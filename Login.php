@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-$message = "Wpisz login i hasło";
+
 if (!empty($_POST["Login"]) && !empty($_POST["Haslo"]) && !empty($_POST["button"])) {
     $servername = "localhost";
     $username = "root";
@@ -24,8 +24,10 @@ if (!empty($_POST["Login"]) && !empty($_POST["Haslo"]) && !empty($_POST["button"
 
         if ($user) {
             $message = "Zalogowano";
+            $messageType = "success";
         } else {
             $message = "Nieprawidłowy login lub hasło";
+            $messageType = "error";
         }
 
     } elseif ($action == "Registracja") {
@@ -36,22 +38,26 @@ if (!empty($_POST["Login"]) && !empty($_POST["Haslo"]) && !empty($_POST["button"
             $row = mysqli_fetch_row($res1);
             if ($row[0] > 0){
                 $message = "Taki login już istnieje";
+                $messageType = "error";
             }else{
                 $query = "INSERT INTO `uzytkownicy`(`Login`, `Haslo`) VALUES ('$Login','$Haslo')";
                 $res = mysqli_query($link, $query);
     
                 if ($res) {
                     $message = "Dodano do bazy";
+                    $messageType = "success";
                 } else {
                     $message = "Nie udało się zarejestrować";
+                    $messageType = "error";
                 }
             }
         }else {
             $message = "Błąd podczas sprawdzania loginu";
+            $messageType = "error";
         }
     }
 
     mysqli_close($link);
 }
-echo "<p>$message</p>";
+Print "<p>$message</p>";
 ?>
