@@ -101,11 +101,10 @@ body {
     text-align: center;
     /*padding: 10px 20px;*/
     font-size: 15px;
-    border-radius: 8px;
     font-weight: bold;
     color: aliceblue;
-    min-height: 100px;
-    min-width: 300px;
+    min-height: 50px;
+    min-width: 200px;
 }
 
 .input1::placeholder {
