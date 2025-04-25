@@ -14,7 +14,7 @@ body {
     position: relative;
 }
 
-.button {
+.button1 {
     background: linear-gradient(to right top, var(--dark-color), var(--light-color));
     border: none;
     border-radius: 15px;
@@ -53,7 +53,7 @@ body {
     filter: blur(3px);
 }
 
-.button::after {
+.button1::after {
     background-color: rgba(255, 255, 255, 0.432);
     content: " ";
     transition: transform 1s linear;
@@ -70,7 +70,7 @@ body {
 
 }
 
-.button:hover::after {
+.button1:hover::after {
     transform: translateX(150px);
 
 }
@@ -81,13 +81,11 @@ body {
     max-width: 300px;
     box-shadow: 3px 3px 3px rgb(27, 27, 27);
     z-index: 10;
-}
-
-.form .remember-forgot {
     display: flex;
-    justify-content: space-between;
     font-size: 14.5px;
     margin: -15px 0px 15px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .input1 {
@@ -98,6 +96,15 @@ body {
     box-shadow: 3px 3px 3px rgb(32, 32, 32, 0.5);
     position: relative;
     
+}
+.message {
+    text-align: center;
+    /*padding: 10px 20px;*/
+    font-size: 15px;
+    font-weight: bold;
+    color: aliceblue;
+    min-height: 50px;
+    min-width: 200px;
 }
 
 .input1::placeholder {
@@ -110,7 +117,6 @@ body {
     border: none;
     padding: 10px;
     box-shadow: 3px 3px 3px rgb(43, 42, 42, 0.5);
-
 }
 
 .input2::placeholder {
@@ -134,6 +140,9 @@ body {
 
 .b{
     position: relative;
+}
+.btn{
+    display: flex;
 }
 
 .input-label:focus ~ .a, .input-label:not(:placeholder-shown) ~ .a {
@@ -207,10 +216,11 @@ body {
     animation-delay: 2s;
     animation: float 6s ease-in-out infinite;
 }
+.form > .input-label{
+    margin-right: 200px;
+}
 
 
-
-
-.btn {
-    display: flex;
+.button1 {
+    margin: 0px 10px 0px 0px;
 }
