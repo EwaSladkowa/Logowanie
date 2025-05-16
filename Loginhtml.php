@@ -14,8 +14,12 @@
 
 
 <body>
+    
     <br><br>
     <form class="form" action="Login.php" method="post">
+        <div class="errorjs" id="errorjs">
+            <h1>Error</h1>
+        </div>
         <?php if (!empty($message)): ?>
             <div class="message <?php echo $messageType; ?>">
                 <h1 style="margin-top:20px;"><?php echo htmlspecialchars($message); ?></h1>
@@ -32,8 +36,8 @@
         </div>
         <br>
         <div class="btn">
-            <button class="button1" name="button" value="Rejestracja" type="submit">Rejestracja</button>
-            <button class="button2" name="button" value="Login" type="submit">Login</button>
+            <button class="button1" name="button" value="Rejestracja" type="submit" onclick="error">Rejestracja</button>
+            <button class="button2" name="button" value="Login" type="submit" onclick="error">Login</button>
         </div>
         <br>
     </form>
@@ -43,6 +47,7 @@
     <div class="bb  bb3"></div>
     <div class="bb  bb4"></div>
     <div class="bb  bb5"></div>
+
     <script src="Login.js"></script>
 </body>
 

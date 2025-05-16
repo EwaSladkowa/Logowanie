@@ -225,3 +225,8 @@ body {
     margin: 0px 10px 0px 0px;
 }
 
+.errorjs{
+    display: flex;
+    justify-content: center;
+    color: azure;
+}
